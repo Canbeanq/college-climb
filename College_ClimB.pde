@@ -116,6 +116,8 @@ void draw() {
   else if (screen.equals("platformer")) drawPlatformer();
   else if (screen.equals("summary"))   drawSummary();
   else if (screen.equals("end"))       drawEndScreen();
+  time(intHealth);
+ 
 }
 
 // ============================================================
@@ -282,6 +284,9 @@ void loadLevel(int lvl) {
   walkL = false;
   walkR = false;
   screen = "platformer";
+  
+  // loads the timer that calculates the time the player has in the level
+ 
 }
 
 void drawPlatformer() {
@@ -382,6 +387,8 @@ void updatePlayer() {
       onGround = true;
     }
   }
+  //calculates the time the player has in each level
+  time(intHealth);
 }
 
 // draws a platform and returns {x, y, w, h} for collision
@@ -473,6 +480,8 @@ void finishWeek() {
   }
 
   screen = "summary";
+  
+  
 }
 
 String signed(int v) {
@@ -545,4 +554,18 @@ void drawButton(String label, float x, float y, float w, float h, int ts) {
   textAlign(CENTER, CENTER);
   textSize(ts);
   text(label, x + w / 2, y + h / 2 - 2);
+}
+
+// function that calculates the time the player has in the level
+void time(int health){
+  int levelTime =  (health/2)- 20;
+  for (int i=0; i<levelTime; i++){
+    levelTime = levelTime - 1;
+  }
+   if (levelTime == 0){
+      resetGame();
+    }
+  
+  println(levelTime);
+  
 }
