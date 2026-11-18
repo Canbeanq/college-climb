@@ -10,7 +10,7 @@
 //
 // Save this file in a folder called College_Climb.
 // ============================================================
-// hello world
+// hello WORLD
 
 final int TOTAL_HOURS = 168;
 final int MAX_WEEKS = 15;
